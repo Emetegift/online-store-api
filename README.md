@@ -1,4 +1,4 @@
-# online-store-api
+# Online-store-api
 
 Online Store Flask-Smorest API
 This is an online store API built using Flask-Smorest, a Flask extension for building RESTful APIs with OpenAPI (formerly known as Swagger) documentation.
@@ -16,7 +16,7 @@ To install and run the online store API, follow these steps:
 Clone the GitHub repository:
 bash
 Copy code
-git clone https://github.com/yourusername/online-store-api.git
+git clone https://github.com/Emetegift/online-store-api.git
 Change to the project directory:
 bash
 Copy code
@@ -33,8 +33,8 @@ pip install -r requirements.txt
 Set up the environment variables:
 
 SECRET_KEY: Secret key for Flask app
-DATABASE_URL: URL of the database (e.g., SQLite, MySQL, PostgreSQL)
-FLASK_APP: Name of the Flask app (e.g., app.py)
+DATABASE_URL: URL of the database (SQLite)
+FLASK_APP: Name of the Flask app ( app.py)
 Make sure to configure these variables with appropriate values before running the API in your environment.
 
 Usage
@@ -46,7 +46,7 @@ Create a new product: Send a POST request to /api/products with the product deta
 Update a product: Send a PUT request to /api/products/{product_id} with the updated product details in the request body.
 Retrieve a product: Send a GET request to /api/products/{product_id} to retrieve the details of a specific product.
 Delete a product: Send a DELETE request to /api/products/{product_id} to delete a specific product.
-Order Processing:
+
 
 Add products to cart: Send a POST request to /api/cart with the product details in the request body to add products to the cart.
 Place an order: Send a POST request to /api/orders with the order details in the request body to place an order.
