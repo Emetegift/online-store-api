@@ -1,60 +1,86 @@
-# Online-store-api
+# Online Store API
 
-Online Store Flask-Smorest API
-This is an online store API built using Flask-Smorest, a Flask extension for building RESTful APIs with OpenAPI (formerly known as Swagger) documentation.
+This project is an online store API built with Flask-Smorest and tested with Insomnia. It provides endpoints for managing products, customers, and orders for an online store.
 
-Features
-The online store API provides the following features:
+## Getting Started
 
-Product management: CRUD operations for managing products, including creating, updating, retrieving, and deleting products.
-Order processing: Ability to add products to a cart, place orders, retrieve order history, retrieve order details, and cancel orders.
-Authentication and authorization: User registration, login, and logout using JWT (JSON Web Token) for authentication and authorization.
-Comprehensive documentation: Automatically generated OpenAPI documentation for all API endpoints with detailed information about parameters, responses, and authentication requirements.
-Installation
-To install and run the online store API, follow these steps:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Clone the GitHub repository:
-bash
-Copy code
-git clone https://github.com/Emetegift/online-store-api.git
-Change to the project directory:
-bash
-Copy code
-cd online-store-api
-Create a virtual environment (optional but recommended) and activate it:
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate (for Mac/Linux)
-venv\Scripts\activate (for Windows)
-Install the required dependencies:
-Copy code
+### Prerequisites
+
+- Python 3.6 or higher
+- pip
+
+### Installation
+
+1. Clone the repository
+```
+git clone https://github.com/yourusername/online-store-api.git
+```
+
+2. Install the required packages
+```
 pip install -r requirements.txt
-Set up the environment variables:
+```
 
-SECRET_KEY: Secret key for Flask app
-DATABASE_URL: URL of the database (SQLite)
-FLASK_APP: Name of the Flask app ( app.py)
-Make sure to configure these variables with appropriate values before running the API in your environment.
+3. Set up the database
+```
+flask db upgrade
+```
 
-Usage
-The online store API provides various endpoints for managing products, processing orders, and handling authentication. Here are some examples of how to use the API:
+4. Start the server
+```
+flask run
+```
 
-Product Management:
+## Usage
 
-Create a new product: Send a POST request to /api/products with the product details in the request body.
-Update a product: Send a PUT request to /api/products/{product_id} with the updated product details in the request body.
-Retrieve a product: Send a GET request to /api/products/{product_id} to retrieve the details of a specific product.
-Delete a product: Send a DELETE request to /api/products/{product_id} to delete a specific product.
+### Endpoints
 
+The following endpoints are available:
 
-Add products to cart: Send a POST request to /api/cart with the product details in the request body to add products to the cart.
-Place an order: Send a POST request to /api/orders with the order details in the request body to place an order.
-Retrieve order history: Send a GET request to /api/orders to retrieve the order history of the authenticated user.
-Retrieve order details: Send a GET request to /api/orders/{order_id} to retrieve the details of a specific order.
-Delete an order: Send a DELETE request to /api/orders/{order_id} to cancel a specific order.
-Authentication and Authorization:
+#### Products
 
-Register a new user: Send a POST request to /api/auth/register with the user details in the request body to register a new user.
-Login: Send a POST request to /api/auth/login with the user credentials in the request body to obtain a JWT token for authentication.
-Logout: Send a POST request to /api/auth/logout to logout the authenticated user.
+- GET `/api/products`: get all products
+- GET `/api/products/{id}`: get a single product by ID
+- POST `/api/products`: create a new product
+- PUT `/api/products/{id}`: update a product by ID
+- DELETE `/api/products/{id}`: delete a product by ID
+
+#### Customers
+
+- GET `/api/customers`: get all customers
+- GET `/api/customers/{id}`: get a single customer by ID
+- POST `/api/customers`: create a new customer
+- PUT `/api/customers/{id}`: update a customer by ID
+- DELETE `/api/customers/{id}`: delete a customer by ID
+
+#### Orders
+
+- GET `/api/orders`: get all orders
+- GET `/api/orders/{id}`: get a single order by ID
+- POST `/api/orders`: create a new order
+- PUT `/api/orders/{id}`: update an order by ID
+- DELETE `/api/orders/{id}`: delete an order by ID
+
+### Authentication
+
+Authentication is required to access the API. To authenticate, send a POST request to `/api/auth/login` with a JSON body containing your username and password. The response will include a JWT access token, which should be included in the `Authorization` header of subsequent requests with the prefix `Bearer ` (including the space).
+
+### Documentation
+
+The API documentation is available at `/api/docs`. It was automatically generated by Flask-Smorest from the OpenAPI schema. You can also view and test the API endpoints from this page.
+
+## Testing
+
+The API can be tested using Insomnia. Import the `insomnia.json` file into Insomnia to use the preconfigured requests. The API must be running locally for the requests to succeed.
+
+## Built With
+
+- Flask - Web framework
+- Flask-Smorest - Flask extension for building RESTful APIs with OpenAPI/Swagger documentation
+- SQLite - Database engine
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
